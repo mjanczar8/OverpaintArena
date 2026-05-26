@@ -1,14 +1,13 @@
 using UnityEngine;
 
-
-public class PlayerPainter : MonoBehaviour
+public class BulletPainter : MonoBehaviour
 {
     [SerializeField] private PaintMap paintMap;
 
     [SerializeField] private Transform leftPaintPoint;
     [SerializeField] private Transform rightPaintPoint;
 
-    [SerializeField] private int thickness = 2;
+    [SerializeField] private int thickness = 1;
 
     private void Awake()
     {
@@ -23,4 +22,5 @@ public class PlayerPainter : MonoBehaviour
 
         paintMap.PaintEdgeLine(leftPaintPoint.position, rightPaintPoint.position, thickness, 1);
     }
+
 }

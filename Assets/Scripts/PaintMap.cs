@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PaintMap : MonoBehaviour
 {
+    public static PaintMap Instance { get; private set; }
+
     [Header("Arena")]
     [SerializeField] private Vector2 arenaWorldSize = new Vector2(18f, 10f);
 
@@ -22,6 +24,14 @@ public class PaintMap : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
         rend = GetComponent<SpriteRenderer>();
 
         paintTexture = new Texture2D(paintWidth, paintHeight, TextureFormat.RGBA32, false);
