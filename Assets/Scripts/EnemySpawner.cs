@@ -63,7 +63,7 @@ public class EnemySpawner : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
         GameObject obj = pool.Spawn(drifterPrefab, worldPos, rotation);
 
-        var drifter = obj.GetComponent<DriftEnemy>();
+        var drifter = obj.GetComponent<DrifterEnemy>();
         if (drifter != null)
         {
             drifter.SetSpawner(this);

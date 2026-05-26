@@ -1,12 +1,12 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
-public class DriftEnemy : MonoBehaviour
+public class DrifterEnemy : MonoBehaviour
 {
     [SerializeField] private GameObject drifterPrefab;
     [SerializeField] private float destroyMargin = 0.2f;
 
-    private float health;
+    private float health = 1;
     private Rigidbody2D rb;
     private Camera mainCamera;
     private EnemySpawner enemySpawner;
@@ -83,7 +83,7 @@ public class DriftEnemy : MonoBehaviour
         }
     }
 
-    public void OnPlayerHit(BasePlayerData player)
+    public void OnPlayerHit(PlayerData player)
     {
         if (player != null && player.canTakeDamage)
         {

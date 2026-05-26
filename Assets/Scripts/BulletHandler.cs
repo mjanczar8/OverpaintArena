@@ -67,12 +67,17 @@ public class BulletHandler : MonoBehaviour
 		}
 	}
 
-	private void OnTriggerEnter2D(Collider2D other)
-	{
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        var enemy = other.GetComponent<DrifterEnemy>();
+        if (enemy == null)
+            return;
 
-	}
+        enemy.TakeDamage(damage);
+        Despawn();
+    }
 
-	private void Despawn()
+    private void Despawn()
 	{
 		if (pooledObject != null)
 			pooledObject.Despawn();
